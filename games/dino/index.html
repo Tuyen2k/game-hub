@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Dino Run - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+            ← Game Hub
+        </a>
+
+        <div class="title">
+
+            <span>🦖</span>
+
+            <div>
+
+                <strong>Dino Run</strong>
+
+                <small>
+                    Endless Runner
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-layout">
+
+        <section class="game-wrapper">
+
+            <canvas
+                id="gameCanvas">
+            </canvas>
+
+            <div
+                id="gameOverlay"
+                class="game-overlay">
+
+                <div>
+
+                    <div
+                        id="overlayIcon"
+                        class="overlay-icon">
+                        🦖
+                    </div>
+
+                    <h2 id="overlayTitle">
+                        Dino Run
+                    </h2>
+
+                    <p id="overlayText">
+                        Nhấn Space để bắt đầu
+                    </p>
+
+                    <button
+                        id="overlayButton">
+                        ▶ Bắt đầu
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <div class="level-label">
+                    ENDLESS RUNNER
+                </div>
+
+                <h1>
+                    Dino Run
+                </h1>
+
+                <p>
+                    Chạy càng xa càng tốt
+                </p>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <span>
+                        Điểm
+                    </span>
+
+                    <strong id="score">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Kỷ lục
+                    </span>
+
+                    <strong id="highScore">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Tốc độ
+                    </span>
+
+                    <strong id="speed">
+                        1.0x
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Quãng đường
+                    </span>
+
+                    <strong id="distance">
+                        0m
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="startButton"
+                class="primary">
+
+                ▶ Bắt đầu
+
+            </button>
+
+
+            <button
+                id="pauseButton">
+
+                Ⅱ Tạm dừng
+
+            </button>
+
+
+            <button
+                id="soundButton">
+
+                🔊 Âm thanh
+
+            </button>
+
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Điều khiển
+                </div>
+
+                <p>
+                    ⌨️ <b>Space / ↑</b> — Nhảy
+                </p>
+
+                <p>
+                    🖱️ Click / chạm — Nhảy
+                </p>
+
+                <p>
+                    ⏸️ <b>P</b> — Tạm dừng
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>

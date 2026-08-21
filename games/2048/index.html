@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>2048 - Game Hub</title>
+    <link rel="stylesheet"
+        href="./style.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+
+            ← Game Hub
+
+        </a>
+
+        <div class="title">
+
+            <span>🔢</span>
+
+            <div>
+                <strong>2048</strong>
+                <small>
+                    Gộp số
+                </small>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- GAME -->
+
+    <main class="game-layout">
+
+        <section class="game-board-wrapper">
+
+            <div
+                id="board"
+                class="board">
+
+                <div
+                    id="boardGrid"
+                    class="layer">
+                </div>
+
+                <div
+                    id="tiles"
+                    class="layer">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <h1>
+                    2048
+                </h1>
+
+                <p>
+                    Gộp các ô giống nhau thành 2048
+                </p>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <span>
+                        Điểm
+                    </span>
+
+                    <strong id="score">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Kỷ lục
+                    </span>
+
+                    <strong id="highScore">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Nước đi
+                    </span>
+
+                    <strong id="moves">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Khối lớn nhất
+                    </span>
+
+                    <strong id="maxTile">
+                        2
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <button
+                id="startButton"
+                class="primary">
+
+                ▶ Bắt đầu / Chơi lại
+
+            </button>
+
+
+            <button
+                id="undoButton">
+
+                ↩ Lối đi
+
+            </button>
+
+
+            <button
+                id="soundButton">
+
+                🔊 Âm thanh
+
+            </button>
+
+
+            <!-- CONTROLS -->
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Điều khiển
+                </div>
+
+                <div>
+                    <kbd>←</kbd>
+                    <kbd>→</kbd>
+                    <kbd>↑</kbd>
+                    <kbd>↓</kbd>
+                    Di chuyển
+                </div>
+
+                <div>
+                    <kbd>A</kbd>
+                    <kbd>D</kbd>
+                    <kbd>W</kbd>
+                    <kbd>S</kbd>
+                    Di chuyển
+                </div>
+
+                <div>
+                    <kbd>Z</kbd>
+                    Lối đi
+                </div>
+
+                <div>
+                    📱 Vuốt trên bảng
+                </div>
+
+            </div>
+
+
+            <!-- MOBILE -->
+
+            <div class="mobile-controls">
+
+                <span
+                    class="empty">
+                </span>
+
+                <button
+                    data-action="up">
+                    ↑
+                </button>
+
+                <span
+                    class="empty">
+                </span>
+
+                <button
+                    data-action="left">
+                    ←
+                </button>
+
+                <button
+                    data-action="undo">
+                    ↩
+                </button>
+
+                <button
+                    data-action="right">
+                    →
+                </button>
+
+                <span
+                    class="empty">
+                </span>
+
+                <button
+                    data-action="down">
+                    ↓
+                </button>
+
+                <span
+                    class="empty">
+                </span>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<!-- GAME OVER / WIN -->
+
+<div
+    id="overlay"
+    class="overlay">
+
+    <div class="overlay-box">
+
+        <h2 id="overlayTitle">
+            Game Over
+        </h2>
+
+        <p id="overlayText">
+            Điểm của bạn: 0
+        </p>
+
+        <button
+            id="overlayButton"
+            class="primary">
+
+            Chơi lại
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Block Rush - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+
+            ← Game Hub
+
+        </a>
+
+        <div class="title">
+
+            <span>🧱</span>
+
+            <div>
+                <strong>Block Rush</strong>
+
+                <small>
+                    Tetris
+                </small>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- GAME -->
+
+    <main class="game-layout">
+
+        <section class="game-board-wrapper">
+
+            <canvas
+                id="game"
+                width="300"
+                height="600">
+            </canvas>
+
+        </section>
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <h1>
+                    Block Rush
+                </h1>
+
+                <p>
+                    Xếp khối và phá dòng
+                </p>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <span>
+                        Điểm
+                    </span>
+
+                    <strong id="score">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Kỷ lục
+                    </span>
+
+                    <strong id="highScore">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Level
+                    </span>
+
+                    <strong id="level">
+                        1
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Dòng
+                    </span>
+
+                    <strong id="lines">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- NEXT -->
+
+            <div class="panel">
+
+                <div class="panel-title">
+                    Khối tiếp theo
+                </div>
+
+                <canvas
+                    id="next"
+                    width="216"
+                    height="82">
+                </canvas>
+
+            </div>
+
+
+            <!-- HOLD -->
+
+            <div class="panel">
+
+                <div class="panel-title">
+                    Hold
+                </div>
+
+                <canvas
+                    id="hold"
+                    width="216"
+                    height="82">
+                </canvas>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <button
+                id="startButton"
+                class="primary">
+
+                ▶ Bắt đầu / Chơi lại
+
+            </button>
+
+
+            <button
+                id="pauseButton">
+
+                Ⅱ Tạm dừng
+
+            </button>
+
+
+            <button
+                id="soundButton">
+
+                🔊 Âm thanh
+
+            </button>
+
+
+            <!-- CONTROLS -->
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Điều khiển
+                </div>
+
+                <div>
+                    <kbd>←</kbd>
+                    <kbd>→</kbd>
+                    Di chuyển
+                </div>
+
+                <div>
+                    <kbd>↓</kbd>
+                    Rơi nhanh
+                </div>
+
+                <div>
+                    <kbd>↑</kbd>
+                    Xoay
+                </div>
+
+                <div>
+                    <kbd>Space</kbd>
+                    Thả ngay
+                </div>
+
+                <div>
+                    <kbd>C</kbd>
+                    Hold
+                </div>
+
+                <div>
+                    <kbd>P</kbd>
+                    Tạm dừng
+                </div>
+
+            </div>
+
+
+            <!-- MOBILE -->
+
+            <div class="mobile-controls">
+
+                <button
+                    data-action="left">
+                    ←
+                </button>
+
+                <button
+                    data-action="rotate">
+                    ↻
+                </button>
+
+                <button
+                    data-action="right">
+                    →
+                </button>
+
+                <button
+                    data-action="down">
+                    ↓
+                </button>
+
+                <button
+                    data-action="drop">
+                    ⤓
+                </button>
+
+                <button
+                    data-action="hold">
+                    H
+                </button>
+
+                <button
+                    class="wide"
+                    data-action="pause">
+
+                    Ⅱ Tạm dừng
+
+                </button>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<!-- GAME OVER / PAUSE -->
+
+<div
+    id="overlay"
+    class="overlay">
+
+    <div class="overlay-box">
+
+        <h2 id="overlayTitle">
+            Game Over
+        </h2>
+
+        <p id="overlayText">
+            Điểm của bạn: 0
+        </p>
+
+        <button
+            id="overlayButton"
+            class="primary">
+
+            Chơi lại
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>

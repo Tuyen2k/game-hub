@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Pikachu Connect - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+            ← Game Hub
+        </a>
+
+        <div class="title">
+
+            <span>⚡</span>
+
+            <div>
+
+                <strong>Pikachu Connect</strong>
+
+                <small>
+                    Tìm và nối các cặp giống nhau
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-layout">
+
+        <section class="game-board-wrapper">
+
+            <div class="hud">
+
+                <div class="hud-stat">
+                    <span>Màn</span>
+                    <strong id="hudLevel">1 / 20</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Điểm</span>
+                    <strong id="hudScore">0</strong>
+                </div>
+
+                <div class="hud-stat" id="hudTimeWrap">
+                    <span>Thời gian</span>
+                    <strong id="hudTime">70</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Combo</span>
+                    <strong id="hudCombo">x0</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Sao</span>
+                    <strong id="hudStars">☆☆☆</strong>
+                </div>
+
+            </div>
+
+
+            <div
+                id="deadlockBanner"
+                class="deadlock-banner hidden">
+                Không còn nước đi. Hãy sử dụng Shuffle.
+            </div>
+
+
+            <div id="boardScroll" class="board-scroll">
+
+                <div id="boardStage" class="board-stage">
+
+                    <div id="board" class="board"></div>
+
+                    <canvas id="lineCanvas"></canvas>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <div class="level-label">
+                    MÀN <span id="levelId">1</span>
+                </div>
+
+                <h1>⚡ Pikachu Connect</h1>
+
+                <p id="levelName">
+                    Beginner · 6 × 6
+                </p>
+
+            </div>
+
+
+            <div class="action-buttons">
+
+                <button
+                    id="hintButton"
+                    class="action-btn">
+                    💡 Hint
+                    <span id="hintCount" class="count-badge">3</span>
+                </button>
+
+                <button
+                    id="shuffleButton"
+                    class="action-btn">
+                    🔀 Shuffle
+                    <span id="shuffleCount" class="count-badge">2</span>
+                </button>
+
+            </div>
+
+
+            <div class="progress-panel">
+
+                <div>
+                    <span>Tiến độ</span>
+                    <strong id="progressLabel">0 / 18 cặp</strong>
+                </div>
+
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+
+            </div>
+
+
+            <button id="pauseButton" class="secondary-btn">
+                Ⅱ Tạm dừng
+            </button>
+
+            <button id="restartButton" class="secondary-btn">
+                ↺ Chơi lại màn
+            </button>
+
+            <button id="soundButton" class="secondary-btn">
+                🔊 Âm thanh
+            </button>
+
+
+            <div class="how-to">
+
+                <div class="panel-title">Cách chơi</div>
+
+                <p>① Chọn một ô.</p>
+
+                <p>② Chọn ô giống nó.</p>
+
+                <p>③ Hai ô phải nối được với tối đa 2 góc.</p>
+
+            </div>
+
+
+            <div class="level-select">
+
+                <div class="panel-title">Chọn màn</div>
+
+                <div id="levelGrid" class="level-grid"></div>
+
+            </div>
+
+
+            <button id="resetProgressButton" class="danger-btn">
+                Xóa tiến trình
+            </button>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<div id="overlay" class="overlay">
+
+    <div class="overlay-box">
+
+        <div id="overlayIcon" class="overlay-icon">⚡</div>
+
+        <div id="overlayLevelLabel" class="overlay-level">MÀN 1</div>
+
+        <h2 id="overlayTitle">Sẵn sàng?</h2>
+
+        <p id="overlayText">Tìm và nối các cặp giống nhau.</p>
+
+        <div id="overlayStars" class="overlay-stars"></div>
+
+        <div id="overlayStats" class="overlay-stats"></div>
+
+        <div class="overlay-buttons">
+
+            <button id="overlayPrimaryButton" class="primary">
+                Bắt đầu
+            </button>
+
+            <button id="overlaySecondaryButton" class="hidden">
+                Màn tiếp theo →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Breakout - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+            ← Game Hub
+        </a>
+
+        <div class="title">
+
+            <span>🧱</span>
+
+            <div>
+
+                <strong>Breakout</strong>
+
+                <small>
+                    Brick Breaker
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-layout">
+
+        <section class="game-wrapper">
+
+            <canvas
+                id="gameCanvas">
+            </canvas>
+
+
+            <div
+                id="gameOverlay"
+                class="game-overlay">
+
+                <div>
+
+                    <div
+                        id="overlayIcon"
+                        class="overlay-icon">
+                        🧱
+                    </div>
+
+                    <h2 id="overlayTitle">
+                        Breakout
+                    </h2>
+
+                    <p id="overlayText">
+                        Phá toàn bộ các viên gạch!
+                    </p>
+
+                    <button
+                        id="overlayButton">
+                        ▶ Bắt đầu
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <div class="level-label">
+                    BRICK BREAKER
+                </div>
+
+                <h1>
+                    Breakout
+                </h1>
+
+                <p>
+                    Phá toàn bộ gạch
+                </p>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <span>
+                        Điểm
+                    </span>
+
+                    <strong id="score">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Kỷ lục
+                    </span>
+
+                    <strong id="highScore">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Gạch
+                    </span>
+
+                    <strong id="bricks">
+                        0/0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Mạng
+                    </span>
+
+                    <strong id="lives">
+                        ❤️❤️❤️
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="startButton"
+                class="primary">
+
+                ▶ Bắt đầu
+
+            </button>
+
+
+            <button
+                id="pauseButton">
+
+                Ⅱ Tạm dừng
+
+            </button>
+
+
+            <button
+                id="soundButton">
+
+                🔊 Âm thanh
+
+            </button>
+
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Điều khiển
+                </div>
+
+                <p>
+                    ⌨️ <b>← →</b> — Di chuyển thanh
+                </p>
+
+                <p>
+                    ⌨️ <b>A D</b> — Di chuyển thanh
+                </p>
+
+                <p>
+                    🖱️ Mouse — Di chuyển thanh
+                </p>
+
+                <p>
+                    👆 Touch — Kéo thanh đỡ
+                </p>
+
+                <p>
+                    🎯 Phá hết gạch để chiến thắng
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>

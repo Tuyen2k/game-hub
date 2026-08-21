@@ -1,0 +1,898 @@
+:root {
+
+    --background:
+        #080d19;
+
+    --panel:
+        #111827;
+
+    --panel-light:
+        #1e293b;
+
+    --border:
+        #334155;
+
+    --text:
+        #f8fafc;
+
+    --muted:
+        #94a3b8;
+
+    --primary:
+        #3568b8;
+
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin:
+        0;
+
+    min-height:
+        100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #243b68,
+            #0b1020 55%
+        );
+
+    color:
+        var(--text);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+
+    width:
+        min(900px, 100%);
+
+    margin:
+        auto;
+
+    padding:
+        20px;
+
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.back-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    padding:
+        9px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        9px;
+
+    background:
+        var(--panel);
+
+    color:
+        var(--text);
+
+    text-decoration:
+        none;
+
+    font-size:
+        13px;
+
+}
+
+
+.back-button:hover {
+
+    background:
+        var(--panel-light);
+
+}
+
+
+.title {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+.title > span {
+
+    font-size:
+        28px;
+
+}
+
+
+.title strong {
+
+    display:
+        block;
+
+    font-size:
+        18px;
+
+}
+
+
+.title small {
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+}
+
+
+/* =========================
+   GAME LAYOUT
+========================= */
+
+.game-layout {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        flex-start;
+
+    gap:
+        20px;
+
+}
+
+
+/* =========================
+   BOARD
+========================= */
+
+.game-board-wrapper {
+
+    padding:
+        12px;
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        16px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45);
+
+}
+
+
+.board {
+
+    position:
+        relative;
+
+    width:
+        420px;
+
+    max-width:
+        100%;
+
+    aspect-ratio:
+        1 / 1;
+
+    background:
+        var(--panel-light);
+
+    border-radius:
+        12px;
+
+    touch-action:
+        none;
+
+}
+
+
+.layer {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+}
+
+
+.cell {
+
+    position:
+        absolute;
+
+    background:
+        rgba(255, 255, 255, .05);
+
+    border-radius:
+        8px;
+
+}
+
+
+/* =========================
+   TILES
+========================= */
+
+.tile {
+
+    position:
+        absolute;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        8px;
+
+    font-weight:
+        bold;
+
+    transition:
+        left .12s ease,
+        top .12s ease;
+
+    will-change:
+        left,
+        top;
+
+}
+
+
+.tile.new {
+
+    animation:
+        tile-pop .18s ease .12s backwards;
+
+}
+
+
+.tile.merged {
+
+    z-index:
+        2;
+
+    animation:
+        tile-merged .2s ease;
+
+}
+
+
+@keyframes tile-pop {
+
+    from {
+
+        transform:
+            scale(0);
+
+        opacity:
+            0;
+
+    }
+
+}
+
+
+@keyframes tile-merged {
+
+    0% {
+
+        transform:
+            scale(.8);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.15);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+
+    width:
+        250px;
+
+    padding:
+        18px;
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        16px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45);
+
+}
+
+
+.game-title h1 {
+
+    margin:
+        0;
+
+    font-size:
+        26px;
+
+}
+
+
+.game-title p {
+
+    margin:
+        4px 0 18px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        8px;
+
+}
+
+
+.stat {
+
+    padding:
+        10px;
+
+    background:
+        var(--panel-light);
+
+    border-radius:
+        10px;
+
+}
+
+
+.stat span {
+
+    display:
+        block;
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.stat strong {
+
+    display:
+        inline-block;
+
+    margin-top:
+        3px;
+
+    font-size:
+        21px;
+
+}
+
+
+.stat strong.bump {
+
+    animation:
+        bump .25s ease;
+
+}
+
+
+@keyframes bump {
+
+    0% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.25);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.sidebar > button {
+
+    width:
+        100%;
+
+    margin-top:
+        8px;
+
+    padding:
+        11px;
+
+    border:
+        1px solid #475569;
+
+    border-radius:
+        9px;
+
+    background:
+        #243554;
+
+    color:
+        white;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+}
+
+
+.sidebar > button:hover {
+
+    filter:
+        brightness(1.2);
+
+}
+
+
+.sidebar > button.primary {
+
+    background:
+        var(--primary);
+
+}
+
+
+.sidebar > button:disabled {
+
+    opacity:
+        .4;
+
+    cursor:
+        default;
+
+}
+
+
+.sidebar > button:disabled:hover {
+
+    filter:
+        none;
+
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+
+    margin-top:
+        12px;
+
+    padding:
+        10px;
+
+    background:
+        var(--panel-light);
+
+    border-radius:
+        10px;
+
+    color:
+        #aeb9ce;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.9;
+
+}
+
+
+kbd {
+
+    display:
+        inline-block;
+
+    min-width:
+        22px;
+
+    padding:
+        1px 5px;
+
+    border:
+        1px solid #475569;
+
+    border-radius:
+        4px;
+
+    background:
+        #0f172a;
+
+    color:
+        white;
+
+    text-align:
+        center;
+
+    font-size:
+        10px;
+
+}
+
+
+/* =========================
+   MOBILE CONTROLS
+========================= */
+
+.mobile-controls {
+
+    display:
+        none;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        6px;
+
+    margin-top:
+        12px;
+
+}
+
+
+.mobile-controls button {
+
+    margin:
+        0;
+
+    padding:
+        12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        8px;
+
+    background:
+        var(--panel-light);
+
+    color:
+        white;
+
+    font-size:
+        19px;
+
+}
+
+
+.mobile-controls .empty {
+
+    visibility:
+        hidden;
+
+}
+
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    display:
+        none;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    background:
+        rgba(0,0,0,.72);
+
+}
+
+
+.overlay-box {
+
+    width:
+        280px;
+
+    padding:
+        30px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        16px;
+
+    background:
+        var(--panel);
+
+    text-align:
+        center;
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.5);
+
+}
+
+
+.overlay-box h2 {
+
+    margin:
+        0 0 8px;
+
+    font-size:
+        28px;
+
+}
+
+
+.overlay-box p {
+
+    color:
+        var(--muted);
+
+}
+
+
+.overlay-box button {
+
+    width:
+        100%;
+
+    padding:
+        11px;
+
+    border:
+        none;
+
+    border-radius:
+        9px;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (
+    max-width: 700px
+) {
+
+    .page {
+
+        padding:
+            8px;
+
+    }
+
+
+    .topbar {
+
+        margin-bottom:
+            10px;
+
+    }
+
+
+    .game-layout {
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+    }
+
+
+    .sidebar {
+
+        order:
+            -1;
+
+        width:
+            100%;
+
+        max-width:
+            400px;
+
+    }
+
+
+    .game-board-wrapper {
+
+        width:
+            100%;
+
+        max-width:
+            400px;
+
+        padding:
+            10px;
+
+    }
+
+
+    .board {
+
+        margin:
+            auto;
+
+    }
+
+
+    .controls {
+
+        display:
+            none;
+
+    }
+
+
+    .mobile-controls {
+
+        display:
+            grid;
+
+    }
+
+}

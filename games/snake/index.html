@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Snake - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+
+            ← Game Hub
+
+        </a>
+
+
+        <div class="title">
+
+            <span>🐍</span>
+
+            <div>
+
+                <strong>Snake</strong>
+
+                <small>
+                    Classic Snake
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- GAME -->
+
+    <main class="game-layout">
+
+        <section class="game-board-wrapper">
+
+            <canvas
+                id="game"
+                width="400"
+                height="400">
+            </canvas>
+
+        </section>
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <h1>
+                    Snake
+                </h1>
+
+                <p>
+                    Ăn thức ăn và lớn lên
+                </p>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <span>
+                        Điểm
+                    </span>
+
+                    <strong id="score">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Kỷ lục
+                    </span>
+
+                    <strong id="highScore">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Tốc độ
+                    </span>
+
+                    <strong id="speed">
+                        1
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Chiều dài
+                    </span>
+
+                    <strong id="length">
+                        3
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <button
+                id="startButton"
+                class="primary">
+
+                ▶ Bắt đầu / Chơi lại
+
+            </button>
+
+
+            <button
+                id="pauseButton">
+
+                Ⅱ Tạm dừng
+
+            </button>
+
+
+            <button
+                id="soundButton">
+
+                🔊 Âm thanh
+
+            </button>
+
+
+            <!-- CONTROLS -->
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Điều khiển
+                </div>
+
+                <div>
+                    <kbd>↑</kbd>
+                    Lên
+                </div>
+
+                <div>
+                    <kbd>↓</kbd>
+                    Xuống
+                </div>
+
+                <div>
+                    <kbd>←</kbd>
+                    Trái
+                </div>
+
+                <div>
+                    <kbd>→</kbd>
+                    Phải
+                </div>
+
+                <div>
+                    <kbd>P</kbd>
+                    Tạm dừng
+                </div>
+
+            </div>
+
+
+            <!-- MOBILE -->
+
+            <div class="mobile-controls">
+
+                <button
+                    class="up"
+                    data-action="up">
+
+                    ↑
+
+                </button>
+
+
+                <button
+                    data-action="left">
+
+                    ←
+
+                </button>
+
+
+                <button
+                    data-action="down">
+
+                    ↓
+
+                </button>
+
+
+                <button
+                    data-action="right">
+
+                    →
+
+                </button>
+
+
+                <button
+                    class="wide"
+                    data-action="pause">
+
+                    Ⅱ Tạm dừng
+
+                </button>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<!-- OVERLAY -->
+
+<div
+    id="overlay"
+    class="overlay">
+
+    <div class="overlay-box">
+
+        <div
+            id="overlayIcon"
+            class="overlay-icon">
+
+            🐍
+
+        </div>
+
+
+        <h2 id="overlayTitle">
+            Game Over
+        </h2>
+
+
+        <p id="overlayText">
+            Điểm của bạn: 0
+        </p>
+
+
+        <button
+            id="overlayButton"
+            class="primary">
+
+            Chơi lại
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>

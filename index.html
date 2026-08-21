@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🎮
+            </div>
+
+            <div>
+
+                <div class="logo-title">
+                    Game Hub
+                </div>
+
+                <div class="logo-subtitle">
+                    Mini Games
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <button
+                id="themeButton"
+                class="icon-button"
+                title="Đổi giao diện">
+
+                🌙
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                🎮 PLAY & HAVE FUN
+            </div>
+
+            <h1>
+                Chơi game.
+                <br>
+                <span>Giải trí ngay.</span>
+            </h1>
+
+            <p>
+                Một bộ sưu tập các mini game
+                đơn giản, miễn phí và chạy trực tiếp
+                trên trình duyệt.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SEARCH
+    ========================== -->
+
+    <section class="toolbar">
+
+        <div class="search-box">
+
+            <span>
+                🔍
+            </span>
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Tìm kiếm game...">
+
+        </div>
+
+
+        <div class="categories">
+
+            <button
+                class="category active"
+                data-category="all">
+
+                Tất cả
+
+            </button>
+
+            <button
+                class="category"
+                data-category="arcade">
+
+                Arcade
+
+            </button>
+
+            <button
+                class="category"
+                data-category="puzzle">
+
+                Puzzle
+
+            </button>
+
+            <button
+                class="category"
+                data-category="classic">
+
+                Classic
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GAME SECTION
+    ========================== -->
+
+    <main>
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    🎮 Tất cả game
+                </h2>
+
+                <p id="gameCount">
+                    4 games
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="gameGrid"
+            class="game-grid">
+
+        </div>
+
+
+        <div
+            id="emptyState"
+            class="empty-state hidden">
+
+            <div class="empty-icon">
+                🔍
+            </div>
+
+            <h3>
+                Không tìm thấy game
+            </h3>
+
+            <p>
+                Hãy thử từ khóa khác.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div>
+            🎮 Game Hub
+        </div>
+
+        <div>
+            <span id="totalGames">
+                4
+            </span>
+            games
+        </div>
+
+        <div>
+            Made with ❤️
+        </div>
+
+    </footer>
+
+</div>
+
+
+<script src="./js/storage.js"></script>
+
+<script src="./js/app.js"></script>
+
+</body>
+
+</html>

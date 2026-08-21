@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Memory Cards - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+            ← Game Hub
+        </a>
+
+        <div class="title">
+
+            <span>🧠</span>
+
+            <div>
+
+                <strong>Memory Cards</strong>
+
+                <small>
+                    Memory Game
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-layout">
+
+        <section class="game-board-wrapper">
+
+            <div
+                id="gameBoard"
+                class="memory-board">
+            </div>
+
+        </section>
+
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <div class="level-label">
+                    LEVEL <span id="level">1</span>
+                </div>
+
+                <h1>
+                    Memory Cards
+                </h1>
+
+                <p id="levelDescription">
+                    Làm quen với trò chơi
+                </p>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <span>
+                        Điểm
+                    </span>
+
+                    <strong id="score">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Tổng điểm
+                    </span>
+
+                    <strong id="totalScore">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Lượt lật
+                    </span>
+
+                    <strong id="moves">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Combo
+                    </span>
+
+                    <strong id="combo">
+                        x0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-panel">
+
+                <div>
+
+                    <span>
+                        Cặp đã ghép
+                    </span>
+
+                    <strong id="pairs">
+                        0/8
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div
+                        id="progress"
+                        class="progress">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="timer-panel">
+
+                <span>
+                    ⏱ Thời gian
+                </span>
+
+                <strong id="timer">
+                    --:--
+                </strong>
+
+            </div>
+
+
+            <button
+                id="startButton"
+                class="primary">
+
+                ▶ Bắt đầu
+
+            </button>
+
+
+            <button
+                id="pauseButton">
+
+                Ⅱ Tạm dừng
+
+            </button>
+
+
+            <button
+                id="soundButton">
+
+                🔊 Âm thanh
+
+            </button>
+
+
+            <div class="levels">
+
+                <div class="panel-title">
+                    Màn chơi
+                </div>
+
+                <div
+                    id="levelList"
+                    class="level-list">
+                </div>
+
+            </div>
+
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Cách chơi
+                </div>
+
+                <p>
+                    🃏 Lật hai thẻ mỗi lượt.
+                </p>
+
+                <p>
+                    🎯 Tìm hai thẻ giống nhau.
+                </p>
+
+                <p>
+                    🔥 Ghép đúng liên tiếp để tăng combo.
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<div
+    id="overlay"
+    class="overlay">
+
+    <div class="overlay-box">
+
+        <div
+            id="overlayIcon"
+            class="overlay-icon">
+            🧠
+        </div>
+
+        <div
+            id="overlayLevel"
+            class="overlay-level">
+            LEVEL 1
+        </div>
+
+        <h2 id="overlayTitle">
+            Sẵn sàng?
+        </h2>
+
+        <p id="overlayText">
+            Tìm tất cả các cặp thẻ.
+        </p>
+
+
+        <div
+            id="resultStats"
+            class="result-stats">
+        </div>
+
+
+        <div class="overlay-buttons">
+
+            <button
+                id="overlayButton"
+                class="primary">
+                Bắt đầu
+            </button>
+
+            <button
+                id="nextLevelButton">
+                Level tiếp theo →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>
