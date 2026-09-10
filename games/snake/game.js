@@ -15,6 +15,55 @@ const CELL =
     canvas.width / GRID;
 
 
+const BASE_INTERVAL_MS = 150;
+
+
+const SPEED_TIERS = [
+
+    { minScore: 0, multiplier: 0.5 },
+
+    { minScore: 50, multiplier: 0.75 },
+
+    { minScore: 100, multiplier: 1 },
+
+    { minScore: 150, multiplier: 1.25 },
+
+    { minScore: 200, multiplier: 1.5 },
+
+    { minScore: 250, multiplier: 2 }
+
+];
+
+
+function getSpeedMultiplier(currentScore) {
+
+    let multiplier =
+        SPEED_TIERS[0].multiplier;
+
+
+    for (
+        const tier
+        of SPEED_TIERS
+    ) {
+
+        if (
+            currentScore >=
+            tier.minScore
+        ) {
+
+            multiplier =
+                tier.multiplier;
+
+        }
+
+    }
+
+
+    return multiplier;
+
+}
+
+
 /* =========================
    STATE
 ========================= */
@@ -29,7 +78,7 @@ let nextDirection;
 
 let score = 0;
 
-let speed = 1;
+let speed = getSpeedMultiplier(0);
 
 let running = false;
 
@@ -170,7 +219,7 @@ function startGame() {
 
     score = 0;
 
-    speed = 1;
+    speed = getSpeedMultiplier(score);
 
     running = true;
 
@@ -216,11 +265,8 @@ function startTimer() {
 function getInterval() {
 
     return Math.max(
-        55,
-        150 -
-        (
-            speed - 1
-        ) * 8
+        40,
+        BASE_INTERVAL_MS / speed
     );
 
 }
@@ -354,9 +400,9 @@ function eatFood() {
 
 
     speed =
-        Math.floor(
-            score / 50
-        ) + 1;
+        getSpeedMultiplier(
+            score
+        );
 
 
     food =
@@ -899,7 +945,7 @@ function updateStats() {
     document.getElementById(
         "speed"
     ).textContent =
-        speed;
+        `${speed}x`;
 
 
     document.getElementById(
