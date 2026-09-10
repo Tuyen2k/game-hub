@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Bubble Shooter - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+            ← Game Hub
+        </a>
+
+        <div class="title">
+
+            <span>🫧</span>
+
+            <div>
+
+                <strong>Bubble Shooter</strong>
+
+                <small>
+                    Bắn bóng cùng màu
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-layout">
+
+        <section class="game-wrapper">
+
+            <div class="hud">
+
+                <div class="hud-stat">
+                    <span>Điểm</span>
+                    <strong id="score">0</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Kỷ lục</span>
+                    <strong id="highScore">0</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Màn</span>
+                    <strong id="level">1</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Hàng mới sau</span>
+                    <strong id="shotsLeft">-</strong>
+                </div>
+
+            </div>
+
+
+            <canvas id="gameCanvas"></canvas>
+
+            <div
+                id="gameOverlay"
+                class="game-overlay">
+
+                <div>
+
+                    <div
+                        id="overlayIcon"
+                        class="overlay-icon">
+                        🫧
+                    </div>
+
+                    <h2 id="overlayTitle">
+                        Bubble Shooter
+                    </h2>
+
+                    <p id="overlayText">
+                        Ngắm và bắn để tạo nhóm ≥3 bóng cùng màu, dọn sạch lưới để qua màn!
+                    </p>
+
+                    <button
+                        id="overlayButton">
+                        ▶ Bắt đầu
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <h1>🫧 Bubble Shooter</h1>
+
+                <p>
+                    Bắn bóng cùng màu để nổ, dọn sạch lưới trước khi nó chạm đáy
+                </p>
+
+            </div>
+
+
+            <button
+                id="startButton"
+                class="primary">
+                ▶ Bắt đầu / Chơi lại
+            </button>
+
+
+            <button
+                id="pauseButton">
+                Ⅱ Tạm dừng
+            </button>
+
+
+            <button
+                id="soundButton">
+                🔊 Âm thanh
+            </button>
+
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Điều khiển
+                </div>
+
+                <div>
+                    🖱️ Di chuyển chuột để ngắm, click để bắn
+                </div>
+
+                <div>
+                    <kbd>←</kbd>
+                    <kbd>→</kbd>
+                    Xoay hướng ngắm
+                </div>
+
+                <div>
+                    <kbd>Space</kbd>
+                    Bắn
+                </div>
+
+                <div>
+                    <kbd>P</kbd>
+                    Tạm dừng
+                </div>
+
+                <p>
+                    📱 Chạm & kéo trên khung chơi để ngắm, nhấc tay để bắn
+                </p>
+
+                <p>
+                    🎯 Bắn trúng để tạo nhóm ≥3 bóng cùng màu sẽ nổ và cộng điểm
+                </p>
+
+                <p>
+                    ⬇️ Bóng không còn dính vào nhóm nào sẽ tự rơi, cộng thêm điểm thưởng
+                </p>
+
+                <p>
+                    ⚠️ Lưới bóng chạm vạch đỏ gần súng là thua
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>
