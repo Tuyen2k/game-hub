@@ -911,6 +911,19 @@ function resolveMatch(a, b, path) {
 
     drawConnectionLine(path);
 
+    // Commit the board/score state immediately, not inside the timeout
+    // below. Otherwise these two cells stay "occupied" for 230ms while
+    // only *looking* gone, so a click, Hint, or Shuffle fired during that
+    // window can still see and touch them - e.g. Shuffle would fold them
+    // into its icon pool and the deferred null-out below would then wipe
+    // out whatever tile ended up at these coordinates, orphaning its real
+    // partner elsewhere on the board. Only the purely cosmetic cleanup
+    // (fade-out class, disabling the buttons) is deferred.
+    state.board[a.row][a.col] = null;
+    state.board[b.row][b.col] = null;
+
+    state.matchedPairs++;
+
     setTileClass(a.row, a.col, "matched", true);
     setTileClass(b.row, b.col, "matched", true);
 
@@ -928,9 +941,6 @@ function resolveMatch(a, b, path) {
 
     const timeoutId = setTimeout(() => {
 
-        state.board[a.row][a.col] = null;
-        state.board[b.row][b.col] = null;
-
         setTileClass(a.row, a.col, "removed", true);
         setTileClass(b.row, b.col, "removed", true);
 
@@ -938,10 +948,6 @@ function resolveMatch(a, b, path) {
         state.tileEls[b.row][b.col].disabled = true;
 
         clearConnectionLine();
-
-        state.matchedPairs++;
-
-        updateHud();
 
         if (state.matchedPairs >= state.totalPairs) {
 
@@ -1268,6 +1274,8 @@ function chooseLevel(levelId) {
 
 
 function finishLevel() {
+
+    if (!state.playing) return;
 
     state.playing = false;
 
