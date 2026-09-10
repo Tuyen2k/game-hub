@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Duck Hunt - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+            ← Game Hub
+        </a>
+
+        <div class="title">
+
+            <span>🦆</span>
+
+            <div>
+
+                <strong>Duck Hunt</strong>
+
+                <small>
+                    Ngắm và bắn vịt
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-layout">
+
+        <section class="game-wrapper">
+
+            <div class="hud">
+
+                <div class="hud-stat">
+                    <span>Điểm</span>
+                    <strong id="score">0</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Kỷ lục</span>
+                    <strong id="highScore">0</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Màn</span>
+                    <strong id="level">1</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Mạng</span>
+                    <strong id="lives">❤️❤️❤️</strong>
+                </div>
+
+            </div>
+
+
+            <canvas id="gameCanvas"></canvas>
+
+            <div
+                id="gameOverlay"
+                class="game-overlay">
+
+                <div>
+
+                    <div
+                        id="overlayIcon"
+                        class="overlay-icon">
+                        🦆
+                    </div>
+
+                    <h2 id="overlayTitle">
+                        Duck Hunt
+                    </h2>
+
+                    <p id="overlayText">
+                        Ngắm và bắn trúng ≥5/6 con vịt mỗi màn để qua màn. Để vịt bay thoát sẽ mất 1 mạng!
+                    </p>
+
+                    <button
+                        id="overlayButton">
+                        ▶ Bắt đầu
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <h1>🦆 Duck Hunt</h1>
+
+                <p>
+                    Bắn trúng vịt trước khi chúng bay mất, đủ chỉ tiêu để qua màn
+                </p>
+
+            </div>
+
+
+            <button
+                id="startButton"
+                class="primary">
+                ▶ Bắt đầu / Chơi lại
+            </button>
+
+
+            <button
+                id="pauseButton">
+                Ⅱ Tạm dừng
+            </button>
+
+
+            <button
+                id="soundButton">
+                🔊 Âm thanh
+            </button>
+
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Điều khiển
+                </div>
+
+                <div>
+                    🖱️ Di chuyển chuột để ngắm, click để bắn
+                </div>
+
+                <div>
+                    <kbd>Space</kbd>
+                    Bắn tự động vào vịt đang bay
+                </div>
+
+                <div>
+                    <kbd>P</kbd>
+                    Tạm dừng
+                </div>
+
+                <p>
+                    📱 Chạm trực tiếp vào vịt trên màn hình để bắn
+                </p>
+
+                <p>
+                    🎯 Mỗi màn có 6 con vịt, cần bắn trúng ≥5 con mới qua màn
+                </p>
+
+                <p>
+                    ❤️ Bạn có 3 mạng dùng chung cả game, mỗi con vịt bay thoát trừ 1 mạng
+                </p>
+
+                <p>
+                    ⚡ Càng lên màn cao vịt bay càng nhanh
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>
