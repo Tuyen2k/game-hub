@@ -144,7 +144,14 @@ function clamp(value, min, max) {
    STATE
 ===================================================== */
 
-let grid = [];
+// A properly-shaped (GRID_ROWS x COLS) grid of nulls from the very start,
+// not an empty []: render() runs on the first animation frame before the
+// player ever clicks Start, and drawGrid()/drawDangerLine() index into
+// grid[r][c] unconditionally - an empty [] made that throw immediately,
+// which silently killed the requestAnimationFrame loop for good (the
+// crash happened before the next frame was scheduled), so nothing ever
+// drew again even after a real game was started.
+let grid = makeEmptyGrid();
 
 const state = {
     score: 0,
