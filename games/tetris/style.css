@@ -417,6 +417,43 @@ body {
 }
 
 
+.next-queue {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    margin-top:
+        8px;
+
+}
+
+
+.next-queue canvas {
+
+    width:
+        100px;
+
+    height:
+        50px;
+
+    background:
+        #050914;
+
+    border-radius:
+        8px;
+
+    opacity:
+        .65;
+
+}
+
+
 /* =========================
    BUTTONS
 ========================= */

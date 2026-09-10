@@ -14,6 +14,18 @@ const nextCanvas =
 const nextCtx =
     nextCanvas.getContext("2d");
 
+const nextCanvas2 =
+    document.getElementById("next2");
+
+const nextCtx2 =
+    nextCanvas2.getContext("2d");
+
+const nextCanvas3 =
+    document.getElementById("next3");
+
+const nextCtx3 =
+    nextCanvas3.getContext("2d");
+
 const holdCanvas =
     document.getElementById("hold");
 
@@ -24,6 +36,20 @@ const holdCtx =
 /* =========================
    CONFIG
 ========================= */
+
+
+/* =========================
+   SPEED TABLE
+
+   Fixed drop interval (ms) per level instead of an uncapped
+   exponential curve - values match the previous curve's output at
+   each 10-line mark, but stop getting faster at LEVEL 10 instead of
+   approaching the floor forever.
+========================= */
+
+const LEVEL_DROP_INTERVALS = [
+    800, 656, 538, 441, 362, 297, 243, 200, 164, 134
+];
 
 const COLORS = {
 
@@ -784,9 +810,12 @@ function clearLines() {
 
 
     level =
-        Math.floor(
-            lines / 10
-        ) + 1;
+        Math.min(
+            LEVEL_DROP_INTERVALS.length,
+            Math.floor(
+                lines / 10
+            ) + 1
+        );
 
 
     saveHighScore();
@@ -1061,14 +1090,22 @@ function drawGame() {
 
 function drawPreview(
     context,
-    type
+    type,
+    size = 20
 ) {
+
+    const width =
+        context.canvas.width;
+
+    const height =
+        context.canvas.height;
+
 
     context.clearRect(
         0,
         0,
-        216,
-        82
+        width,
+        height
     );
 
 
@@ -1079,8 +1116,8 @@ function drawPreview(
     context.fillRect(
         0,
         0,
-        216,
-        82
+        width,
+        height
     );
 
 
@@ -1091,19 +1128,16 @@ function drawPreview(
         SHAPES[type];
 
 
-    const size = 20;
-
-
     const offsetX =
         (
-            216 -
+            width -
             matrix[0].length * size
         ) / 2 / size;
 
 
     const offsetY =
         (
-            82 -
+            height -
             matrix.length * size
         ) / 2 / size;
 
@@ -1141,6 +1175,20 @@ function drawPreviews() {
     drawPreview(
         nextCtx,
         nextPieces[0]
+    );
+
+
+    drawPreview(
+        nextCtx2,
+        nextPieces[1],
+        12
+    );
+
+
+    drawPreview(
+        nextCtx3,
+        nextPieces[2],
+        12
     );
 
 
@@ -1190,14 +1238,13 @@ function updateStats() {
 
 function getDropInterval() {
 
-    return Math.max(
-        70,
-        800 *
-        Math.pow(
-            .82,
-            level - 1
-        )
-    );
+    const index =
+        Math.min(
+            level,
+            LEVEL_DROP_INTERVALS.length
+        ) - 1;
+
+    return LEVEL_DROP_INTERVALS[index];
 
 }
 
