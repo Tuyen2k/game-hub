@@ -171,7 +171,7 @@ body {
 
     display: grid;
 
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 6px;
 
@@ -208,15 +208,137 @@ body {
 }
 
 
-.hud-stat.time-warning strong {
-    color: var(--danger);
-    animation: pulse-time .6s ease-in-out infinite;
-}
-
-
 @keyframes pulse-time {
     0%, 100% { opacity: 1; }
     50% { opacity: .45; }
+}
+
+
+/* TIME BAR */
+
+.time-bar-wrap {
+
+    margin-bottom: 10px;
+
+    padding: 8px 10px 6px;
+
+    background: var(--panel-light);
+
+    border-radius: 9px;
+
+}
+
+
+.time-bar-labels {
+
+    position: relative;
+
+    height: 14px;
+
+}
+
+
+.star-zone-label {
+
+    position: absolute;
+
+    top: 0;
+
+    transform: translateX(-50%);
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+
+.star-zone-label.zone-3 { left: 75%; color: var(--success); }
+
+.star-zone-label.zone-2 { left: 36%; color: var(--accent); }
+
+.star-zone-label.zone-1 { left: 11%; color: var(--danger); }
+
+
+.time-bar-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.time-bar-track {
+
+    position: relative;
+
+    flex: 1;
+
+    height: 10px;
+
+    overflow: hidden;
+
+    background: #0f172a;
+
+    border-radius: 20px;
+
+}
+
+
+.time-bar-fill {
+
+    width: 100%;
+
+    height: 100%;
+
+    background: var(--success);
+
+    transition: width 1s linear, background-color .3s;
+
+}
+
+
+.time-bar-fill.zone-2 { background: var(--accent); }
+
+.time-bar-fill.zone-1 { background: var(--danger); }
+
+
+.time-bar-marker {
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 2px;
+
+    background: rgba(9, 17, 31, .55);
+
+    pointer-events: none;
+}
+
+
+.time-bar-seconds {
+
+    min-width: 28px;
+
+    text-align: right;
+
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+.time-bar-wrap.time-warning .time-bar-seconds {
+    color: var(--danger);
+    animation: pulse-time .6s ease-in-out infinite;
 }
 
 
@@ -801,7 +923,11 @@ body {
     }
 
     .hud {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .star-zone-label {
+        font-size: 9px;
     }
 
 }

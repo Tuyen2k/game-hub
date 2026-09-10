@@ -102,7 +102,10 @@ const el = {
     hudLevel: document.getElementById("hudLevel"),
     hudScore: document.getElementById("hudScore"),
     hudTime: document.getElementById("hudTime"),
-    hudTimeWrap: document.getElementById("hudTimeWrap"),
+    timeBarWrap: document.getElementById("timeBarWrap"),
+    timeBarFill: document.getElementById("timeBarFill"),
+    timeBarMarker3: document.getElementById("timeBarMarker3"),
+    timeBarMarker2: document.getElementById("timeBarMarker2"),
     hudCombo: document.getElementById("hudCombo"),
     hudStars: document.getElementById("hudStars"),
     deadlockBanner: document.getElementById("deadlockBanner"),
@@ -1132,14 +1135,18 @@ function applyShuffle(positions, icons) {
    SCORE / STARS
 ===================================================== */
 
+const STAR_3_RATIO = 0.5;
+const STAR_2_RATIO = 0.22;
+
+
 function computeStars(remaining, initial) {
 
     if (initial <= 0) return 3;
 
     const ratio = remaining / initial;
 
-    if (ratio >= 0.5) return 3;
-    if (ratio >= 0.22) return 2;
+    if (ratio >= STAR_3_RATIO) return 3;
+    if (ratio >= STAR_2_RATIO) return 2;
 
     return 1;
 
@@ -1199,9 +1206,16 @@ function updateTimerDisplay() {
 
     el.hudTime.textContent = state.time;
 
-    const warning = state.initialTime > 0 && state.time <= Math.max(10, Math.floor(state.initialTime * 0.15));
+    const ratio = state.initialTime > 0 ? state.time / state.initialTime : 1;
 
-    el.hudTimeWrap.classList.toggle("time-warning", warning);
+    el.timeBarFill.style.width = `${Math.max(0, ratio * 100)}%`;
+
+    const stars = computeStars(state.time, state.initialTime);
+
+    el.timeBarFill.classList.toggle("zone-2", stars === 2);
+    el.timeBarFill.classList.toggle("zone-1", stars === 1);
+
+    el.timeBarWrap.classList.toggle("time-warning", stars === 1);
 
 }
 
@@ -1739,6 +1753,9 @@ runPathFindingSelfTests();
 ===================================================== */
 
 function init() {
+
+    el.timeBarMarker3.style.left = `${STAR_3_RATIO * 100}%`;
+    el.timeBarMarker2.style.left = `${STAR_2_RATIO * 100}%`;
 
     const progress = loadProgress();
 
