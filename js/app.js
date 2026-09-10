@@ -208,6 +208,86 @@ const games = [
         status: GameStatus.AVAILABLE,
 
         url: "./games/sudoku/index.html"
+    },
+
+
+    {
+        id: "pacman",
+
+        name: "Dot Muncher",
+
+        description:
+            "Ăn hết chấm trong mê cung, né 4 con ma.",
+
+        icon: "👻",
+
+        category: "arcade",
+
+        difficulty: 3,
+
+        status: GameStatus.AVAILABLE,
+
+        url: "./games/pacman/index.html"
+    },
+
+
+    {
+        id: "bubble-shooter",
+
+        name: "Bubble Shooter",
+
+        description:
+            "Ngắm và bắn bóng cùng màu, dọn sạch lưới trước khi nó chạm đáy.",
+
+        icon: "🫧",
+
+        category: "puzzle",
+
+        difficulty: 2,
+
+        status: GameStatus.AVAILABLE,
+
+        url: "./games/bubble-shooter/index.html"
+    },
+
+
+    {
+        id: "duck-hunt",
+
+        name: "Duck Hunt",
+
+        description:
+            "Ngắm và bắn trúng vịt trước khi chúng bay mất khỏi màn hình.",
+
+        icon: "🦆",
+
+        category: "arcade",
+
+        difficulty: 2,
+
+        status: GameStatus.AVAILABLE,
+
+        url: "./games/duck-hunt/index.html"
+    },
+
+
+    {
+        id: "flappy-bird",
+
+        name: "Flappy Bird",
+
+        description:
+            "Vỗ cánh né ống, bay càng xa điểm càng cao.",
+
+        icon: "🐤",
+
+        category: "arcade",
+
+        difficulty: 2,
+
+        status: GameStatus.AVAILABLE,
+
+        url: "./games/flappy-bird/index.html"
     }
 
 ];

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Dot Muncher - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+            ← Game Hub
+        </a>
+
+        <div class="title">
+
+            <span>👻</span>
+
+            <div>
+
+                <strong>Dot Muncher</strong>
+
+                <small>
+                    Pac-Man Style
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-layout">
+
+        <section class="game-wrapper">
+
+            <div class="hud">
+
+                <div class="hud-stat">
+                    <span>Điểm</span>
+                    <strong id="score">0</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Kỷ lục</span>
+                    <strong id="highScore">0</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Màn</span>
+                    <strong id="level">1</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Mạng</span>
+                    <strong id="lives">❤️❤️❤️</strong>
+                </div>
+
+            </div>
+
+
+            <canvas id="gameCanvas"></canvas>
+
+            <div
+                id="gameOverlay"
+                class="game-overlay">
+
+                <div>
+
+                    <div
+                        id="overlayIcon"
+                        class="overlay-icon">
+                        👻
+                    </div>
+
+                    <h2 id="overlayTitle">
+                        Dot Muncher
+                    </h2>
+
+                    <p id="overlayText">
+                        Ăn hết chấm, né ma. Ăn viên năng lượng để phản công!
+                    </p>
+
+                    <button
+                        id="overlayButton">
+                        ▶ Bắt đầu
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="mobile-controls">
+
+                <span class="empty"></span>
+
+                <button
+                    data-action="up">
+                    ↑
+                </button>
+
+                <span class="empty"></span>
+
+                <button
+                    data-action="left">
+                    ←
+                </button>
+
+                <button
+                    data-action="down">
+                    ↓
+                </button>
+
+                <button
+                    data-action="right">
+                    →
+                </button>
+
+                <button
+                    class="wide"
+                    data-action="pause">
+
+                    Ⅱ Tạm dừng
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <h1>👻 Dot Muncher</h1>
+
+                <p>
+                    Ăn hết toàn bộ chấm để qua màn, né 4 con ma
+                </p>
+
+            </div>
+
+
+            <button
+                id="startButton"
+                class="primary">
+                ▶ Bắt đầu / Chơi lại
+            </button>
+
+
+            <button
+                id="pauseButton">
+                Ⅱ Tạm dừng
+            </button>
+
+
+            <button
+                id="soundButton">
+                🔊 Âm thanh
+            </button>
+
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Điều khiển
+                </div>
+
+                <div>
+                    <kbd>↑</kbd>
+                    <kbd>↓</kbd>
+                    <kbd>←</kbd>
+                    <kbd>→</kbd>
+                    Di chuyển
+                </div>
+
+                <div>
+                    <kbd>W</kbd>
+                    <kbd>A</kbd>
+                    <kbd>S</kbd>
+                    <kbd>D</kbd>
+                    Di chuyển
+                </div>
+
+                <div>
+                    <kbd>P</kbd>
+                    Tạm dừng
+                </div>
+
+                <p>
+                    🟡 Ăn hết chấm nhỏ để qua màn
+                </p>
+
+                <p>
+                    ⚪ Viên năng lượng khiến ma sợ hãi trong ít giây, ăn được ma để cộng điểm
+                </p>
+
+                <p>
+                    👻 Chạm phải ma (khi ma bình thường) sẽ mất 1 mạng
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>
