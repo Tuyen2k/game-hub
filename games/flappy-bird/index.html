@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Flappy Bird - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+            ← Game Hub
+        </a>
+
+        <div class="title">
+
+            <span>🐤</span>
+
+            <div>
+
+                <strong>Flappy Bird</strong>
+
+                <small>
+                    Vỗ cánh né ống
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-layout">
+
+        <section class="game-wrapper">
+
+            <div class="hud">
+
+                <div class="hud-stat">
+                    <span>Điểm</span>
+                    <strong id="score">0</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Kỷ lục</span>
+                    <strong id="highScore">0</strong>
+                </div>
+
+            </div>
+
+
+            <canvas id="gameCanvas"></canvas>
+
+            <div
+                id="gameOverlay"
+                class="game-overlay">
+
+                <div>
+
+                    <div
+                        id="overlayIcon"
+                        class="overlay-icon">
+                        🐤
+                    </div>
+
+                    <h2 id="overlayTitle">
+                        Flappy Bird
+                    </h2>
+
+                    <p id="overlayText">
+                        Click, chạm hoặc nhấn Space để vỗ cánh. Né ống, đừng chạm đất!
+                    </p>
+
+                    <button
+                        id="overlayButton">
+                        ▶ Bắt đầu
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <h1>🐤 Flappy Bird</h1>
+
+                <p>
+                    Vỗ cánh để bay qua khe hở giữa các ống, càng nhiều điểm càng khó
+                </p>
+
+            </div>
+
+
+            <button
+                id="startButton"
+                class="primary">
+                ▶ Bắt đầu / Chơi lại
+            </button>
+
+
+            <button
+                id="pauseButton">
+                Ⅱ Tạm dừng
+            </button>
+
+
+            <button
+                id="soundButton">
+                🔊 Âm thanh
+            </button>
+
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Điều khiển
+                </div>
+
+                <div>
+                    🖱️ Click chuột để vỗ cánh
+                </div>
+
+                <div>
+                    <kbd>Space</kbd>
+                    Vỗ cánh
+                </div>
+
+                <div>
+                    <kbd>P</kbd>
+                    Tạm dừng
+                </div>
+
+                <p>
+                    📱 Chạm vào khung chơi để vỗ cánh
+                </p>
+
+                <p>
+                    🎯 Bay qua mỗi cặp ống được +1 điểm
+                </p>
+
+                <p>
+                    ⚠️ Chạm ống, chạm đất hoặc chạm trần là thua ngay
+                </p>
+
+                <p>
+                    ⚡ Đạt mốc điểm cao hơn, ống cuộn nhanh hơn và khe hở hẹp hơn
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>
