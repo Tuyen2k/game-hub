@@ -208,6 +208,26 @@ const games = [
         status: GameStatus.AVAILABLE,
 
         url: "./games/sudoku/index.html"
+    },
+
+
+    {
+        id: "pacman",
+
+        name: "Dot Muncher",
+
+        description:
+            "Ăn hết chấm trong mê cung, né 4 con ma.",
+
+        icon: "👻",
+
+        category: "arcade",
+
+        difficulty: 3,
+
+        status: GameStatus.AVAILABLE,
+
+        url: "./games/pacman/index.html"
     }
 
 ];
