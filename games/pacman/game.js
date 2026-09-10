@@ -463,40 +463,72 @@ function endGame() {
    MOVEMENT
 ===================================================== */
 
-function stepPlayer(delta) {
+function arriveAtPlayerTile(row, col) {
 
-    const row = Math.round(player.row);
-    const col = Math.round(player.col);
+    if (player.nextDir && isWalkable(row + player.nextDir.dr, col + player.nextDir.dc, false)) {
 
-    const atCenter =
-        Math.abs(player.row - row) < 0.06 &&
-        Math.abs(player.col - col) < 0.06;
+        player.dir = player.nextDir;
 
-    if (atCenter) {
+    }
 
-        player.row = row;
-        player.col = col;
+    if (player.dir && !isWalkable(row + player.dir.dr, col + player.dir.dc, false)) {
 
-        if (player.nextDir && isWalkable(row + player.nextDir.dr, col + player.nextDir.dc, false)) {
-
-            player.dir = player.nextDir;
-
-        }
-
-        if (player.dir && !isWalkable(row + player.dir.dr, col + player.dir.dc, false)) {
-
-            player.dir = null;
-
-        }
-
-        onPlayerEnterTile(row, col);
+        player.dir = null;
 
     }
 
     if (player.dir) {
 
-        player.row += player.dir.dr * player.speed * delta;
-        player.col += player.dir.dc * player.speed * delta;
+        player.targetRow = row + player.dir.dr;
+        player.targetCol = col + player.dir.dc;
+
+    }
+
+    onPlayerEnterTile(row, col);
+
+}
+
+
+function stepPlayer(delta) {
+
+    if (!player.dir) {
+
+        const row = Math.round(player.row);
+        const col = Math.round(player.col);
+
+        player.row = row;
+        player.col = col;
+
+        arriveAtPlayerTile(row, col);
+
+    }
+
+    if (!player.dir) return;
+
+    player.row += player.dir.dr * player.speed * delta;
+    player.col += player.dir.dc * player.speed * delta;
+
+    // Overshoot-based arrival against the explicit target tile recorded in
+    // arriveAtPlayerTile - see the matching comment in stepGhost for why a
+    // re-rounded/epsilon check is unreliable here.
+    const reachedRow =
+        player.dir.dr === 0 ||
+        (player.dir.dr > 0 ? player.row >= player.targetRow : player.row <= player.targetRow);
+
+    const reachedCol =
+        player.dir.dc === 0 ||
+        (player.dir.dc > 0 ? player.col >= player.targetCol : player.col <= player.targetCol);
+
+    if (reachedRow && reachedCol) {
+
+        player.row = player.targetRow;
+        player.col = player.targetCol;
+
+        wrapEntity(player);
+
+        arriveAtPlayerTile(Math.round(player.row), Math.round(player.col));
+
+    } else {
 
         wrapEntity(player);
 
@@ -690,35 +722,39 @@ function chooseGhostDirection(ghost, row, col) {
 }
 
 
+function arriveAtGhostTile(ghost, row, col) {
+
+    if (ghost.mode === "eaten" && row === doorTile.row && col === doorTile.col) {
+
+        ghost.mode = state.globalMode;
+        ghost.speed = getGhostSpeed(state.level);
+        ghost.dir = DIRS.down;
+
+    } else {
+
+        ghost.dir = chooseGhostDirection(ghost, row, col);
+
+    }
+
+    ghost.targetRow = row + ghost.dir.dr;
+    ghost.targetCol = col + ghost.dir.dc;
+
+}
+
+
 function stepGhost(ghost, delta) {
 
     if (ghost.state === "idle") return;
 
+    if (!ghost.dir) {
 
-    const row = Math.round(ghost.row);
-    const col = Math.round(ghost.col);
-
-    const atCenter =
-        Math.abs(ghost.row - row) < 0.06 &&
-        Math.abs(ghost.col - col) < 0.06;
-
-    if (atCenter) {
+        const row = Math.round(ghost.row);
+        const col = Math.round(ghost.col);
 
         ghost.row = row;
         ghost.col = col;
 
-
-        if (ghost.mode === "eaten" && row === doorTile.row && col === doorTile.col) {
-
-            ghost.mode = state.globalMode;
-            ghost.speed = getGhostSpeed(state.level);
-            ghost.dir = DIRS.down;
-
-        } else {
-
-            ghost.dir = chooseGhostDirection(ghost, row, col);
-
-        }
+        arriveAtGhostTile(ghost, row, col);
 
     }
 
@@ -730,10 +766,34 @@ function stepGhost(ghost, delta) {
                 ? EATEN_SPEED
                 : ghost.speed;
 
-    if (ghost.dir) {
+    ghost.row += ghost.dir.dr * speed * delta;
+    ghost.col += ghost.dir.dc * speed * delta;
 
-        ghost.row += ghost.dir.dr * speed * delta;
-        ghost.col += ghost.dir.dc * speed * delta;
+    // Overshoot-based arrival: compare against the explicit target tile
+    // recorded when this direction was chosen, rather than re-rounding the
+    // current position. Re-rounding is ambiguous for the first frame or two
+    // after leaving a tile (a single frame's travel can be smaller than any
+    // fixed epsilon at low speed/high frame rate), which previously snapped
+    // the ghost straight back to the tile it had just left - freezing it in
+    // place forever since every following frame repeated the same round trip.
+    const reachedRow =
+        ghost.dir.dr === 0 ||
+        (ghost.dir.dr > 0 ? ghost.row >= ghost.targetRow : ghost.row <= ghost.targetRow);
+
+    const reachedCol =
+        ghost.dir.dc === 0 ||
+        (ghost.dir.dc > 0 ? ghost.col >= ghost.targetCol : ghost.col <= ghost.targetCol);
+
+    if (reachedRow && reachedCol) {
+
+        ghost.row = ghost.targetRow;
+        ghost.col = ghost.targetCol;
+
+        wrapEntity(ghost);
+
+        arriveAtGhostTile(ghost, Math.round(ghost.row), Math.round(ghost.col));
+
+    } else {
 
         wrapEntity(ghost);
 
@@ -755,7 +815,10 @@ function updateGhostRelease(delta) {
             ghost.row = houseCenter.row;
             ghost.col = houseCenter.col;
 
-            ghost.dir = DIRS.up;
+            // Leave dir unset: stepGhost's own tile-arrival logic picks the
+            // first direction and records its target tile, the same path
+            // used for every later tile-to-tile transition.
+            ghost.dir = null;
 
             ghost.mode = state.globalMode;
 
