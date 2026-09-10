@@ -585,10 +585,10 @@ kbd {
 }
 
 
-.mobile-controls .up {
+.mobile-controls .empty {
 
-    grid-column:
-        2;
+    visibility:
+        hidden;
 
 }
 
