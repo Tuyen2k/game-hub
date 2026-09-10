@@ -638,9 +638,16 @@ function landProjectile(row, col, color) {
 
     }
 
-    onShotLanded();
-
+    // Win check runs BEFORE the shot-count/row-insertion bookkeeping: if
+    // this shot clears the whole board, that must win the level outright,
+    // even when it also happens to be the Nth shot that would otherwise
+    // insert a fresh row. checkWinCondition() already resets
+    // shotsSinceRow as part of leveling up, so onShotLanded() correctly
+    // starts the new level's own countdown instead of stacking a row
+    // insertion on top of a board that was just won.
     checkWinCondition();
+
+    onShotLanded();
 
     if (!state.over) checkGameOverNow();
 
