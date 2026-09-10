@@ -148,6 +148,26 @@ const games = [
         status: GameStatus.AVAILABLE,
 
         url: "./games/dino/index.html"
+    },
+
+
+    {
+        id: "tower-stack",
+
+        name: "Tower Stack",
+
+        description:
+            "Thả khối đúng lúc để xếp tháp cao nhất.",
+
+        icon: "🗼",
+
+        category: "arcade",
+
+        difficulty: 2,
+
+        status: GameStatus.AVAILABLE,
+
+        url: "./games/tower-stack/index.html"
     }
 
 ];
