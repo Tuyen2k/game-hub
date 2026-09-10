@@ -168,6 +168,46 @@ const games = [
         status: GameStatus.AVAILABLE,
 
         url: "./games/tower-stack/index.html"
+    },
+
+
+    {
+        id: "minesweeper",
+
+        name: "Minesweeper",
+
+        description:
+            "Dò mìn, mở hết ô an toàn để chiến thắng.",
+
+        icon: "💣",
+
+        category: "puzzle",
+
+        difficulty: 2,
+
+        status: GameStatus.AVAILABLE,
+
+        url: "./games/minesweeper/index.html"
+    },
+
+
+    {
+        id: "sudoku",
+
+        name: "Sudoku",
+
+        description:
+            "Điền số 1-9 sao cho không trùng hàng, cột, khối.",
+
+        icon: "🔢",
+
+        category: "puzzle",
+
+        difficulty: 3,
+
+        status: GameStatus.AVAILABLE,
+
+        url: "./games/sudoku/index.html"
     }
 
 ];

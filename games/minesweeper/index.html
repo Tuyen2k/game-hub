@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Minesweeper - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+            ← Game Hub
+        </a>
+
+        <div class="title">
+
+            <span>💣</span>
+
+            <div>
+
+                <strong>Minesweeper</strong>
+
+                <small>
+                    Dò mìn
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-layout">
+
+        <section class="game-board-wrapper">
+
+            <div class="hud">
+
+                <div class="hud-stat">
+                    <span>Mìn còn lại</span>
+                    <strong id="mineCount">10</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Thời gian</span>
+                    <strong id="timer">0</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Độ khó</span>
+                    <strong id="hudDifficulty">Dễ</strong>
+                </div>
+
+            </div>
+
+
+            <div id="boardScroll" class="board-scroll">
+
+                <div id="board" class="board"></div>
+
+            </div>
+
+        </section>
+
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <h1>💣 Minesweeper</h1>
+
+                <p>
+                    Mở hết ô không có mìn để thắng
+                </p>
+
+            </div>
+
+
+            <div class="panel-title">
+                Độ khó
+            </div>
+
+            <div
+                id="difficultyList"
+                class="difficulty-list">
+            </div>
+
+
+            <button
+                id="flagModeButton"
+                class="secondary-btn">
+                🚩 Chế độ đặt cờ: Tắt
+            </button>
+
+
+            <button
+                id="restartButton"
+                class="primary">
+                🔄 Ván mới
+            </button>
+
+
+            <button
+                id="soundButton">
+                🔊 Âm thanh
+            </button>
+
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Cách chơi
+                </div>
+
+                <p>
+                    🖱️ Click trái — Mở ô
+                </p>
+
+                <p>
+                    🖱️ Click phải — Đặt / gỡ cờ
+                </p>
+
+                <p>
+                    👆 Chạm — Mở ô (bật "Chế độ đặt cờ" ở trên để cắm cờ trên di động)
+                </p>
+
+                <p>
+                    🎯 Số trên ô cho biết số mìn ở 8 ô xung quanh
+                </p>
+
+                <p>
+                    ✅ Click đầu tiên luôn an toàn, không bao giờ trúng mìn
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<div id="overlay" class="overlay">
+
+    <div class="overlay-box">
+
+        <div id="overlayIcon" class="overlay-icon">💣</div>
+
+        <h2 id="overlayTitle">Minesweeper</h2>
+
+        <p id="overlayText">Chọn độ khó và mở ô đầu tiên để bắt đầu</p>
+
+        <div id="overlayStats" class="overlay-stats"></div>
+
+        <div class="overlay-buttons">
+            <button id="overlayButton" class="primary">Bắt đầu</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>

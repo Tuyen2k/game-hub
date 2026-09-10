@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Sudoku - Game Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="topbar">
+
+        <a
+            href="../../index.html"
+            class="back-button">
+            ← Game Hub
+        </a>
+
+        <div class="title">
+
+            <span>🔢</span>
+
+            <div>
+
+                <strong>Sudoku</strong>
+
+                <small>
+                    Điền số 1-9
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-layout">
+
+        <section class="game-board-wrapper">
+
+            <div class="hud">
+
+                <div class="hud-stat">
+                    <span>Thời gian</span>
+                    <strong id="timer">0</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Lỗi</span>
+                    <strong id="mistakeCount">0</strong>
+                </div>
+
+                <div class="hud-stat">
+                    <span>Gợi ý</span>
+                    <strong id="hintCount">3</strong>
+                </div>
+
+            </div>
+
+
+            <div id="boardScroll" class="board-scroll">
+
+                <div id="board" class="board"></div>
+
+            </div>
+
+
+            <div id="numberPad" class="number-pad">
+
+                <button data-number="1">1</button>
+                <button data-number="2">2</button>
+                <button data-number="3">3</button>
+                <button data-number="4">4</button>
+                <button data-number="5">5</button>
+                <button data-number="6">6</button>
+                <button data-number="7">7</button>
+                <button data-number="8">8</button>
+                <button data-number="9">9</button>
+                <button data-number="0" class="erase">⌫</button>
+
+            </div>
+
+        </section>
+
+
+        <aside class="sidebar">
+
+            <div class="game-title">
+
+                <h1>🔢 Sudoku</h1>
+
+                <p>
+                    Mỗi hàng, cột và khối 3×3 chứa đủ số 1-9
+                </p>
+
+            </div>
+
+
+            <div class="panel-title">
+                Độ khó
+            </div>
+
+            <div
+                id="difficultyList"
+                class="difficulty-list">
+            </div>
+
+
+            <button
+                id="hintButton"
+                class="secondary-btn">
+                💡 Dùng gợi ý
+            </button>
+
+
+            <button
+                id="restartButton"
+                class="primary">
+                🔄 Ván mới
+            </button>
+
+
+            <button
+                id="soundButton">
+                🔊 Âm thanh
+            </button>
+
+
+            <div class="controls">
+
+                <div class="panel-title">
+                    Cách chơi
+                </div>
+
+                <p>
+                    👆 Chọn ô trống, rồi chọn số ở bàn phím số
+                </p>
+
+                <p>
+                    ⌨️ Có thể gõ trực tiếp số 1-9 trên bàn phím
+                </p>
+
+                <p>
+                    🎯 Ô sai sẽ hiện màu đỏ ngay lập tức
+                </p>
+
+                <p>
+                    💡 Gợi ý sẽ tự điền đúng 1 ô còn trống
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<div id="overlay" class="overlay">
+
+    <div class="overlay-box">
+
+        <div id="overlayIcon" class="overlay-icon">🔢</div>
+
+        <h2 id="overlayTitle">Sudoku</h2>
+
+        <p id="overlayText">Chọn độ khó để bắt đầu ván mới</p>
+
+        <div id="overlayStats" class="overlay-stats"></div>
+
+        <div class="overlay-buttons">
+            <button id="overlayButton" class="primary">Bắt đầu</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../../js/storage.js"></script>
+
+<script src="./game.js"></script>
+
+</body>
+
+</html>
