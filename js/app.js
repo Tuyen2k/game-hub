@@ -1,3 +1,12 @@
+const GameStatus = Object.freeze({
+
+    AVAILABLE: 1,
+
+    COMING_SOON: 2
+
+});
+
+
 const games = [
 
     {
@@ -14,7 +23,7 @@ const games = [
 
         difficulty: 2,
 
-        status: "available",
+        status: GameStatus.AVAILABLE,
 
         url: "./games/tetris/index.html"
 
@@ -35,7 +44,7 @@ const games = [
 
         difficulty: 1,
 
-        status: "available",
+        status: GameStatus.AVAILABLE,
 
         url: "./games/snake/index.html"
     },
@@ -55,7 +64,7 @@ const games = [
 
         difficulty: 1,
 
-        status: "coming-soon",
+        status: GameStatus.AVAILABLE,
 
         url: "./games/2048/index.html"
 
@@ -76,7 +85,7 @@ const games = [
 
         difficulty: 2,
 
-        status: "available",
+        status: GameStatus.AVAILABLE,
 
         url: "./games/memory/index.html"
     },
@@ -96,7 +105,7 @@ const games = [
 
         difficulty: 2,
 
-        status: "available",
+        status: GameStatus.AVAILABLE,
 
         url: "./games/breakout/index.html"
     },
@@ -116,7 +125,7 @@ const games = [
 
         difficulty: 3,
 
-        status: "available",
+        status: GameStatus.AVAILABLE,
 
         url: "./games/pikachu/index.html"
     },
@@ -136,7 +145,7 @@ const games = [
 
         difficulty: 2,
 
-        status: "available",
+        status: GameStatus.AVAILABLE,
 
         url: "./games/dino/index.html"
     }
@@ -268,7 +277,7 @@ function createGameCard(game) {
 
 
     const isAvailable =
-        game.status === "available";
+        game.status === GameStatus.AVAILABLE;
 
 
     card.innerHTML = `
