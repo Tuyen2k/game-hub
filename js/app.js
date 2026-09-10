@@ -8,7 +8,7 @@ const games = [
         description:
             "Xếp các khối và hoàn thành càng nhiều dòng càng tốt.",
 
-        icon: "🧱",
+        icon: "🟦",
 
         category: "classic",
 

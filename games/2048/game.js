@@ -464,6 +464,10 @@ function createTile(
     );
 
 
+    grid[row][col] =
+        tile;
+
+
     return tile;
 
 }
