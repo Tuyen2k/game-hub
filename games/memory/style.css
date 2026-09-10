@@ -527,12 +527,25 @@ body {
 
     cursor: pointer;
 
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 
 .sidebar > button:hover {
 
     filter: brightness(1.15);
+
+}
+
+
+.sidebar > button:active {
+
+    filter: brightness(1.3);
+
+    transform: scale(.98);
 
 }
 
@@ -838,8 +851,6 @@ body {
 
 
     .sidebar {
-
-        order: -1;
 
         width: 100%;
 

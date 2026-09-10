@@ -260,6 +260,19 @@ canvas {
 
     cursor: pointer;
 
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+
+.game-overlay button:active {
+
+    filter: brightness(1.2);
+
+    transform: scale(.97);
+
 }
 
 
@@ -391,12 +404,25 @@ canvas {
 
     cursor: pointer;
 
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 
 .sidebar > button:hover {
 
     filter: brightness(1.15);
+
+}
+
+
+.sidebar > button:active {
+
+    filter: brightness(1.3);
+
+    transform: scale(.98);
 
 }
 
@@ -486,8 +512,6 @@ canvas {
 
 
     .sidebar {
-
-        order: -1;
 
         width: 100%;
 
